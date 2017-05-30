@@ -1,0 +1,13 @@
+projenin özelliklerini objectiveste arttýr.
+manager ve user panellerine admindeki fixler yapýlacak
+manager can assign other teams to tasks but must be able to assign only his team
+view tasks task description typo --> viewtasks.php deðiþtirdim
+tasks --> exp app.js app1.js deðiþtirdim.
+task progress chart for each project to be implemented
+çalýþmayan tablar kaldýrýlmalý
+sidebar deðiþti
+addproject.php deðiþti
+add task to project --> text-danger is removed to remove ";" addtask.php modified
+assign a task- task descript should come from db
+check all headers especially old tabs
+add event goes to wrong page

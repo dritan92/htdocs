@@ -1,0 +1,117 @@
+1) Create a database: Database name "phpro_auth"
+
+
+2) Execute this Sql's
+
+-------------------------------------------------------------------
+CREATE TABLE `events` (
+ `eventsID` int(11) NOT NULL AUTO_INCREMENT,
+ `eventsTitle` varchar(50) NOT NULL,
+ `eventsDate` varchar(10) NOT NULL,
+ `eventsDetails` varchar(500) NOT NULL,
+ `users` varchar(20) NOT NULL,
+ `eventsTime` varchar(10) NOT NULL,
+ `eventsRespo` varchar(50) NOT NULL,
+ PRIMARY KEY (`eventsID`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1
+
+
+
+-----------------------------------------------------
+
+
+CREATE TABLE `meetings` (
+ `meetingsID` int(11) NOT NULL AUTO_INCREMENT,
+ `meetingsTitle` varchar(50) NOT NULL,
+ `meetingsDetails` varchar(4000) NOT NULL,
+ `meetingsDate` varchar(50) NOT NULL,
+ `meetingsTime` varchar(50) NOT NULL,
+ `users` varchar(300) NOT NULL,
+ `Duration` varchar(10) NOT NULL,
+ `meetingsRespo` varchar(50) NOT NULL,
+ PRIMARY KEY (`meetingsID`),
+ UNIQUE KEY `meetingsID` (`meetingsID`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1
+
+
+
+-----------------------------------------------------
+
+
+CREATE TABLE `task` (
+ `checkedDate` datetime NOT NULL,
+ `taskID` int(11) NOT NULL AUTO_INCREMENT,
+ `taskTitle` varchar(40) NOT NULL,
+ `startDate` varchar(10) NOT NULL,
+ `dueDate` varchar(10) NOT NULL,
+ `description` varchar(1000) NOT NULL,
+ `manager` varchar(30) NOT NULL,
+ `members` varchar(20) NOT NULL,
+ `Progress` int(4) NOT NULL DEFAULT '0',
+ `over` int(3) NOT NULL DEFAULT '100',
+ `addedBy` varchar(20) NOT NULL,
+ `comments` varchar(1000) NOT NULL,
+ PRIMARY KEY (`taskID`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1
+
+
+-----------------------------------------------------
+
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(100) NOT NULL,
+ `password` varchar(100) NOT NULL,
+ `role` varchar(100) NOT NULL,
+ `email` varchar(100) NOT NULL,
+ `name` varchar(100) NOT NULL,
+ `surname` varchar(100) NOT NULL,
+ `ProfilePic` varchar(100) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1
+
+
+-----------------------------------------------------
+
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `email`, `name`, `surname`, `ProfilePic`) VALUES (NULL, 'admin', 'admin', 'Admin', 'AdminEmail', 'AdmineName', 'AdmineSurname', 'http://localhost/companycalendar/login/images/amine.jpg');
+
+
+-----------------------------------------------------
+
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `email`, `name`, `surname`, `ProfilePic`) VALUES (NULL, 'employee', 'employee', 'Employee', 'employeeEmail', 'employeeName', 'AdmineSurname', 'http://localhost/companycalendar/login/images/amine.jpg');
+
+------------------------------------------------------
+
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `email`, `name`, `surname`, `ProfilePic`) VALUES (NULL, 'manager', 'manager', 'Manager', 'ManaegrEmail', 'ManaegrName', 'ManaegrSurname', 'http://localhost/companycalendar/login/images/amine.jpg');
+
+
+
+
+
+--------------------------------------------------------
+
+
+INSERT INTO `task` (`checkedDate`, `taskID`, `taskTitle`, `startDate`, `dueDate`, `description`, `manager`, `members`, `Progress`, `over`, `addedBy`, `comments`) VALUES ('2016-06-03 00:00:00', NULL, 'CS492Task1', '05-06-2017', '05-06-2017', 'The First Task', 'manager', 'employee', '50', '100', 'admin', 'This Task IS ...'), ('2017-06-03 00:00:00', NULL, 'CS492Task2', '06-06-2017', '07-06-2017', 'The Second Task', 'manager', 'admin', '0', '100', 'admin', ''), ('2017-06-03 00:00:00', NULL, 'CS411Task3', '03-06-2017', '08-06-2017', 'The third Task', 'manager', 'employee', '10', '100', 'admin', 'This Task IS ...'),('2017-06-03 00:00:00', NULL, 'CS306Task4', '09-06-2016', '09-06-2016', 'The Fourth Task', 'manager', 'employee', '100', '100', 'admin', 'Comment Sample ...'),('2016-06-03 00:00:00', NULL, 'CS306Task5', '05-06-2016', '05-06-2016', 'The First Task', 'manager', 'employee', '50', '100', 'admin', 'This Task IS ...'),('2016-06-03 00:00:00', NULL, 'CS306Task6', '12-06-2016', '13-06-2016', 'The First Task', 'manager', 'employee', '70', '100', 'admin', 'This Task IS ...')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

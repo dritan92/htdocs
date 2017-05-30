@@ -1,0 +1,26 @@
+1) Please Download the XAMPP tool from: https://www.apachefriends.org/fr/index.html
+
+2) install the XAMPP toll
+
+3) it will create a folder in the localDisk C, named xampp.
+
+4) copy the Folder CompanyCalendar into xampp/htdocs/
+
+5) now, execute the XAMPP application and Start (Appache) and (MySQL)
+
+6) in your browser, write "http://localhost/phpmyadmin/"
+
+7) Create a Database named "phpro_auth"
+
+8) execute the sql's in the file InstalSql.txt one by one to Create the tables and add the information into the tables.
+
+9) after executing all the Sql codes, 3 different username will be created:
+
+		UserName		Password
+	01	admin			admin			(for the admin panel)
+	02	manager			manager			(for the manager panel)	  
+	03	employee		employee		v(for the employee panel)
+
+10) you can run the platfrom now by tuping in the browser "localhost/companycalendar/
+
+Thank You!
