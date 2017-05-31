@@ -6,15 +6,15 @@ $sql ="SELECT * FROM project where status='Y'";
 $resultadao = mysql_query ($sql);
 if(isset($_POST['submit']))
 {
-	$pname = $_POST["pname"];
-	$pdesc = $_POST["desc"];
+  $pname = $_POST["pname"];
+  $pdesc = $_POST["desc"];
   $tname = $_POST["tname"];
   $tLevel = $_POST["tLevel"];
-	$mysql_hostname = 'localhost';
+  $mysql_hostname = 'localhost';
     $mysql_username = 'root';
     $mysql_password = '';
     $mysql_dbname = 'phpro_auth';
-	$dbh = new PDO("mysql:host=$mysql_hostname;dbname=$mysql_dbname", $mysql_username, $mysql_password); 
+  $dbh = new PDO("mysql:host=$mysql_hostname;dbname=$mysql_dbname", $mysql_username, $mysql_password); 
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $dbh->prepare("INSERT INTO project_tasks(projectId,name,description,level)
     VALUES(:projectId, :name, :description, :level)");
@@ -25,11 +25,11 @@ if(isset($_POST['submit']))
                 "level" => $tLevel
             ));
             if($result){
-            	$status = "Task Added Successfully ";
+              $status = "Task Added Successfully ";
             }
             else
             {
-            	$status = "Entry Failed ";
+              $status = "Entry Failed ";
             }
 
 }
@@ -45,11 +45,11 @@ if(isset($_POST['submit']))
                 <!-- /.row -->
             </div>
             <div class="row">
-            	<p class="text-danger"><?=$status?></p>;
+              
             </div>
             <div class="row col-lg-8">
             <form method="post" name="project_form">
-            	<div class="form-group">
+              <div class="form-group">
                   <label class="col-sm-3 control-label">Project Name</label>
                   <div class="col-sm-7">
                       <select id="pname" name="pname" class="form-control" required>
@@ -98,12 +98,12 @@ if(isset($_POST['submit']))
                   
                   <div class="col-sm-6">
                   
-                      <input type="submit" id="pname" name="submit" value=" submit" maxlength="20"  class="btn btn-primary pull-right">
+                      <input type="submit" id="pname" name="submit" value=" Submit" maxlength="20"  class="btn btn-primary pull-right">
                       <span class="help-block"></span>
                   </div>
               </div>
             </form>
-            	
+              
             </div>
        
        </div>

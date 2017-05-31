@@ -40,7 +40,7 @@ require_once("../side-bar.php"); ?>
 												echo"<th>Project ID</th>";
 												echo"<th>Task Title</th>";
 												
-												echo"<th>Task Discrpition</th>";
+												echo"<th>Task Description</th>";
 												echo"<th>Start Date</th>";
 												echo"<th>Due Date</th>";
 												echo"<th>Manager</th>";

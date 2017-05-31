@@ -156,7 +156,7 @@ function fetchSubTeamsAndUsers(val)
               var html='<h4> Team Members</h4>';
               var html1='<h4> Team Members</h4>';
               html1 += "<table class='table  table-bordered table-responsive'>";
-              html1 += "<thead><tr><td style='width:5%'>Select</td><td style='width:5%'>Name</td><td style='width:5%'>Level</td><td style='width:5%'>Max</td><td style='width:5%'>Assigned</td><td style='width:5%'>Av</td><td style='width:20%'>Due Date</td><td style='width:15%'>Completed Tasks</td></tr></thead>";
+              html1 += "<thead><tr><td style='width:5%'>Select</td><td style='width:5%'>Name</td><td style='width:5%'>Level</td><td style='width:5%'>Max</td><td style='width:5%'>Assigned</td><td style='width:5%'>Av</td><td style='width:20%'>Due Date</td><td style='width:3%'>Exp</td></tr></thead>";
              var checkedvar='';
              var busyFlag =true;
              var checkedId= 0;
@@ -304,7 +304,7 @@ function fetchUsers(teamVal){
               var html='<h4> Team Members</h4>';
               var html1='<h4> Team Members</h4>';
               html1 += "<table class='table  table-bordered table-responsive'>";
-              html1 += "<thead><tr><td style='width:5%'>Select</td><td style='width:5%'>Name</td><td style='width:5%'>Level</td><td style='width:5%'>Max</td><td style='width:5%'>Assigned</td><td style='width:5%'>Av</td><td style='width:20%'>Due Date</td><td style='width:5%'>Tasks</td></tr></thead>";
+              html1 += "<thead><tr><td style='width:5%'>Select</td><td style='width:5%'>Name</td><td style='width:5%'>Level</td><td style='width:5%'>Max</td><td style='width:5%'>Assigned</td><td style='width:5%'>Av</td><td style='width:20%'>Due Date</td><td style='width:3%'>Exp</td></tr></thead>";
              var checkedvar='';
              var busyFlag =true;
              var checkedId= 0;

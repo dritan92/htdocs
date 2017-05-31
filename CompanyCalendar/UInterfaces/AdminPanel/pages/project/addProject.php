@@ -6,14 +6,14 @@ $managers = mysql_query ($sql1);
 $status='';
 if(isset($_POST['submit']))
 {
-	$pname = $_POST["pname"];
-	$pdesc = $_POST["pdesc"];
+  $pname = $_POST["pname"];
+  $pdesc = $_POST["pdesc"];
   $manager = $_POST["manager"];
-	$mysql_hostname = 'localhost';
+  $mysql_hostname = 'localhost';
     $mysql_username = 'root';
     $mysql_password = '';
     $mysql_dbname = 'phpro_auth';
-	$dbh = new PDO("mysql:host=$mysql_hostname;dbname=$mysql_dbname", $mysql_username, $mysql_password); 
+  $dbh = new PDO("mysql:host=$mysql_hostname;dbname=$mysql_dbname", $mysql_username, $mysql_password); 
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $dbh->prepare("INSERT INTO project(name, description,managerId)
     VALUES(:name, :description, :managerId)");
@@ -23,11 +23,11 @@ if(isset($_POST['submit']))
                 "managerId" => $manager
             ));
             if($result){
-            	$status = "Project Added Successfully";
+              $status = "Project Added Successfully";
             }
             else
             {
-            	$status = "Entry Failed ";
+              $status = "Entry Failed ";
             }
 
 }
@@ -43,11 +43,11 @@ if(isset($_POST['submit']))
                 <!-- /.row -->
             </div>
             <div class="row">
-            	<p class="text-danger"><?=$status?></p>
+              <p class="text-danger"><?=$status?></p>
             </div>
             <div class="row col-lg-8">
             <form method="post" name="project_form">
-            	<div class="form-group">
+              <div class="form-group">
                   <label class="col-sm-3 control-label">Project Name</label>
                   <div class="col-sm-7">
                       <input type="text" id="pname" name="pname" value="" maxlength="20"  class="form-control" required>
@@ -62,7 +62,7 @@ if(isset($_POST['submit']))
                   </div>
               </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Task Manager</label>
+                    <label class="col-sm-3 control-label">Project Manager</label>
                     <div class="col-sm-7">
                         <Select   id="team" name="manager" id="manager" maxlength="20"  class="form-control"  >
                             <option value=''>Select Manager</option>
@@ -81,12 +81,12 @@ if(isset($_POST['submit']))
                   
                   <div class="col-sm-6">
                   
-                      <input type="submit" id="pname" name="submit" value=" submit" maxlength="20"  class="btn btn-primary pull-right">
+                      <input type="submit" id="pname" name="submit" value=" Submit" maxlength="20"  class="btn btn-primary pull-right">
                       <span class="help-block"></span>
                   </div>
               </div>
             </form>
-            	
+              
             </div>
        
        </div>

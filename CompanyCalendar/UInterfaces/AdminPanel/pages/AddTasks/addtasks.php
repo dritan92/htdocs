@@ -3,26 +3,12 @@ require_once("../header.php");
 require_once("../side-bar.php");
 $sql ="SELECT * FROM teams where parent=0";
 $allTeams = mysql_query ($sql);
-$sql ="SELECT p.*,u.name mname FROM project p INNER JOIN users u on u.id=p.managerId where p.status='Y'";
-$allProjects = $pm = mysql_query ($sql);
+$sql ="SELECT * FROM project where status='Y'";
+$allProjects = mysql_query ($sql);
 $sql1 ="SELECT * FROM users where role='Manager'";
- $managers = mysql_query ($sql1);
-?>
-<script type="text/javascript">
-managerAray=[];
- <?php  
-while ($row = mysql_fetch_object ($managers) ){
-    echo "projectmanager ('$row->id','$row->name');"; 
-}
-
-
+$managers = mysql_query ($sql1);
 
 ?>
-function projectmanager(a,b){
-managerAray["'"+a+"'"]=b;
-}
-console.log("managerAray",managerAray);
-</script>
 <style>
 .applyStyle{
     background:green !important;
@@ -37,39 +23,39 @@ console.log("managerAray",managerAray);
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Assign Tasks</h1>
+                        <h1 class="page-header">Add Tasks</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-                
-                
-                <html>
-                <?php
+        
+        
+        <html>
+        <?php
 
-                    /*** begin our session ***/
-                    //session_start();
+          /*** begin our session ***/
+          //session_start();
 
-                    /*** set a form token ***/
-                    $form_token = md5( uniqid('auth', true) );
+          /*** set a form token ***/
+          $form_token = md5( uniqid('auth', true) );
 
-                    /*** set the session form token ***/
-                    $_SESSION['form_token'] = $form_token;
-                    ?>
+          /*** set the session form token ***/
+          $_SESSION['form_token'] = $form_token;
+          ?>
 
-                    <html>
-                    <head>
-                    <title>PHPRO Login</title>
-                    </head>
+          <html>
+          <head>
+          <title>PHPRO Login</title>
+          </head>
 
-                    <body>
-                    <!--<h2>Add user</h2>-->
-                    <form action="addtasks_submit.php" method="post" id="add_task_form">
-                    <fieldset >
+          <body>
+          <!--<h2>Add user</h2>-->
+          <form action="addtasks_submit.php" method="post" id="add_task_form">
+          <fieldset >
                     <div class="col-sm-7">
-                     <div class="form-group">
+               <div class="form-group">
                       <label class="col-sm-3 control-label">Project</label>
                       <div class="col-sm-9">
                           <Select   id="team" name="projectId"  maxlength="20"  class="form-control" onchange="fetchProjectTask(this.value)" >
@@ -87,7 +73,7 @@ console.log("managerAray",managerAray);
                       </div>
                       
                   </div>
-                <div class="form-group">
+        <div class="form-group">
                     <label class="col-sm-3 control-label">Task Title</label>
                         <div class="col-sm-9" id="projectTasks">
                             <select class="form-control" required></select>
@@ -102,44 +88,44 @@ console.log("managerAray",managerAray);
                           <span class="help-block"></span>
                       </div>
                   </div>
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label">Percentage Time</label>
-                      <div class="col-sm-9">
-                          <input type="number" id="pTime" name="pTime" value="" maxlength="20"  class="form-control" required>
-                              
-                          <span class="help-block"></span>
-                      </div>
-                  </div>
-        
-                    
-                    <div class="form-group">
+    
+          
+          <div class="form-group">
                                       <label class="col-sm-3 control-label">Task Description</label>
                                       <div class="col-sm-9">
                                           <textarea type="paragraph_text" id="desription" name="description" value="" maxlength=""  class="form-task " style="margin: 0px; width: 100%; height: 139px;"></textarea>
                                           <span class="help-block"></span>
                                       </div>
                                   </div>
-                    
-                    <div class="form-group">
+          
+          <div class="form-group">
                                       <label class="col-sm-3 control-label">START Date</label>
                                       <div class="col-sm-9">
                                           <input type="date" id="start" name="start" value="" maxlength="20"  class="form-control datepiker">
                                           <span class="help-block"></span>
                                       </div>
                                   </div>
-                    <div class="form-group">
+          <div class="form-group">
                                       <label class="col-sm-3 control-label">DUE Date</label>
                                       <div class="col-sm-9">
                                           <input type="date" id="due" name="due" value="" maxlength="20"  class="form-control datepiker">
                                           <span class="help-block"></span>
                                       </div>
                                   </div>
-                    <div class="form-group">
+          <div class="form-group">
                           <label class="col-sm-3 control-label">Task Manager</label>
                           <div class="col-sm-9">
-                          <input type="text" name="managername" id="managername" class="form-control" readonly>
-                              <input type="hidden" name="manager" id='manager' value='' >
-                              <span class="help-block"></span>
+                              <Select   id="team" name="manager" id="manager" maxlength="20"  class="form-control"  >
+                                  <option value=''>Select Manager</option>
+                                  <?php
+                                  while ($row = mysql_fetch_object ($managers) )
+
+                                    { ?>
+                                        <option value="<?=$row->id?>"><?=$row->name?></option>
+                                    <?php 
+                                    } 
+                                  ?>
+                            </Select><span class="help-block"></span>
                           </div>
                       </div>
                      <div class="form-group">
@@ -175,32 +161,32 @@ console.log("managerAray",managerAray);
                                           <span class="help-block"></span>
                                       </div>
                                   </div> -->
-                    <!--div class="form-group">
+          <!--div class="form-group">
                                       <label class="col-sm-3 control-label">Periority</label>
                                       <div class="col-sm-9">
                                            <input type="radio" name="Role" value="Admin" checked> Admin<br>
-                                           <input type="radio" name="Role" value="Manager" checked> Manager<br>
-                                           <input type="radio" name="Role" value="Employee" checked> Employee<br>
-                                          
+                       <input type="radio" name="Role" value="Manager" checked> Manager<br>
+                       <input type="radio" name="Role" value="Employee" checked> Employee<br>
+                      
                                           <span class="help-block"></span>
                                       </div>
                                   </div-->
-                    <input type="hidden" name="bestVal" id="bestVal" value="" />
+          <input type="hidden" name="bestVal" id="bestVal" value="" />
                     <input type="hidden" name="bestVal2" id="bestVal2" value="" />
-                    <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
+          <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
                     <div class="col-sm-5">
                     <div  id="radioGroup"> </div>
                     <div  id="radioGroup1"> </div>
                     </div>
                     <div style="width: 100%;float:left;">
-                    <input type="button" class="btn btn-primary" onclick="submit_form()"  value="Submit" /></div>
-                    
-                    </fieldset>
-                    </form>
-                    </body>
-                        </html>         
-                                    
-                                       <!-- /#page-wrapper -->
+          <input type="button" class="btn btn-primary" onclick="submit_form()"  value="Submit" /></div>
+          
+          </fieldset>
+          </form>
+          </body>
+            </html>     
+                  
+                     <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -225,7 +211,7 @@ console.log("managerAray",managerAray);
   <script src='fc/lib/moment.min.js'></script>
   <script src='fc/fullcalendar.js'></script>
   <script src='js/main.js'></script>
-  <script src='../app.js'></script>
+  <script src='../app1.js'></script>
 
   </body>
 </html>
